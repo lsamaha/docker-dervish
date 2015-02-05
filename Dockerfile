@@ -20,4 +20,5 @@ RUN DEBIAN_FRONTEND=noninteractive \
 
 # dervish
 
-$(amazon_kclpy_helper.py --print_command --java $(which java) --properties /usr/local/lib/python2.7/dist-packages/amazon_kclpy-1.1.0-py2.7.egg/samples/sample.properties)
+RUN $(amazon_kclpy_helper.py --print_command --java $(which java) \
+    --properties /usr/local/lib/python2.7/dist-packages/amazon_kclpy-1.1.0-py2.7.egg/samples/sample.properties)
