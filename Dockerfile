@@ -12,13 +12,21 @@ RUN DEBIAN_FRONTEND=noninteractive \
     DEBIAN_FRONTEND=noninteractive \
     apt-get install -y \
     openjdk-7-jre-headless \
-    python-pip
-RUN pip install amazon_kclpy
+    python-pip \
+    wget
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get clean autoclean && \
     apt-get autoremove
 
+# aws
+
+RUN pip install amazon_kclpy
+
 # dervish
 
-RUN $(amazon_kclpy_helper.py --print_command --java $(which java) \
-    --properties /usr/local/lib/python2.7/dist-packages/amazon_kclpy-1.1.0-py2.7.egg/samples/sample.properties)
+RUN pip install dervish
+
+RUN mkdir -p /etc/default/dervish
+RUN wget -P /etc/default/dervish https://s3.amazonaws.com/meadow-lark/conf-deploy/prod/dervish/sand/3/dervish.properties
+
+RUN $(amazon_kclpy_helper.py --print_command --java $(which java) --properties /etc/default/dervish/dervish.properties)
