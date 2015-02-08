@@ -26,7 +26,7 @@ RUN pip install amazon_kclpy
 
 RUN pip install dervish
 
-RUN mkdir -p /etc/default/dervish
-RUN wget -P /etc/default/dervish https://s3.amazonaws.com/meadow-lark/conf-deploy/prod/dervish/sand/3/dervish.properties
+RUN mkdir -p /etc/defaults/dervish
+RUN wget -P /etc/defaults/dervish https://s3.amazonaws.com/meadow-lark/conf-deploy/prod/dervish/sand/6/dervish.properties
 
-RUN $(amazon_kclpy_helper.py --print_command --java $(which java) --properties /etc/default/dervish/dervish.properties)
+# RUN $(amazon_kclpy_helper.py --print_command --java $(which java) --properties /etc/defaults/dervish/dervish.properties)
