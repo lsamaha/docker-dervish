@@ -14,6 +14,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     openjdk-7-jre-headless \
     python-pip \
     wget
+RUN pip install -U pip
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get clean autoclean && \
     apt-get autoremove
