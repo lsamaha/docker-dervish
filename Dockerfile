@@ -29,5 +29,5 @@ RUN pip install dervish
 
 RUN mkdir -p /etc/defaults/dervish
 RUN wget -P /etc/defaults/dervish https://s3.amazonaws.com/meadow-lark/conf-deploy/prod/dervish/sand/7/dervish.properties
-ENTRYPOINT ["dervisher"]
+ENTRYPOINT ["dervish"]
 
